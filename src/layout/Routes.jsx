@@ -16,7 +16,7 @@ import ProctedRoute from "../component/web/proctedRoute/ProctedRoute.jsx";
 import Profile from "../component/web/profile/Profile.jsx";
 import UserInfo from "../component/web/profile/UserInfo.jsx";
 import UserContact from "../component/web/profile/UserContact.jsx";
-import SendCode from "../component/web/sendCode.jsx";
+import SendCode from "../component/web/SendCode.jsx";
 //import Auth from "../component/web/proctedRoute/Auth.jsx";
 export const router = createBrowserRouter([
 

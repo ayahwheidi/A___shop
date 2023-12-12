@@ -1,0 +1,20 @@
+.swiper {
+ background-color: azure;
+ padding: 20px;
+
+}
+.swiper-button-prev,.swiper-button-next{
+    background-color: #fff;
+    color:black;
+    width:40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.swiper-button-next:after ,.swiper-button-prev:after{
+font-size: 25px;
+
+}
+.swiper-pagination-bullet{
+    color: red;
+    background-color: blue;
+}

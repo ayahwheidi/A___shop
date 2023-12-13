@@ -20,10 +20,9 @@ export default function App() {
     
 <CartContextProvider>
    
-    
     <RouterProvider router={router} />
     
-    </CartContextProvider>
+   // </CartContextProvider>
     
   )
 }

@@ -17,6 +17,7 @@ import Profile from "../component/web/profile/Profile.jsx";
 import UserInfo from "../component/web/profile/UserInfo.jsx";
 import UserContact from "../component/web/profile/UserContact.jsx";
 import SendCode from "../component/web/SendCode.jsx";
+import GitOrder from "../component/web/order/GitOrder.jsx";
 //import Auth from "../component/web/proctedRoute/Auth.jsx";
 export const router = createBrowserRouter([
 
@@ -73,6 +74,11 @@ export const router = createBrowserRouter([
         path: 'forgetPassword',
         element: <ForgetPassword />
       },
+      {
+        path: 'getOrder',
+        element: <GitOrder />
+      },
+      
       {
         path: 'profile',
         element:

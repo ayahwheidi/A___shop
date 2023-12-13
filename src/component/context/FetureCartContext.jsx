@@ -5,8 +5,10 @@ import { toast } from "react-toastify";
 
  export const CartContext= createContext(null);
  export function CartContextProvider({children}){
+
   let[cart,setCart]=useState([]);
   let[count,setCount]=useState(0);
+  const [loading,setLoading]=useState(true);
 
 
   const addToCartContext= async(productId)=>{
@@ -43,9 +45,9 @@ console.log(error);
     try{
       const token =localStorage.getItem("userToken");
       const {data}= await axios.get(`${import.meta.env.VITE_API_URL}/cart`,{headers:{Authorization:`Tariq__${token}`}});
-
+console.log(data);
       setCount(data.count);
-      
+      setLoading(false);
       //setCart(data.products);
       //console.log(cart);
       return data;
@@ -57,7 +59,56 @@ console.log(error);
 
   }
   
+  const clearCartContext=async ()=>{
+    try{
+      const token =localStorage.getItem("userToken");
+      const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/clear`,{},{headers:{Authorization:`Tariq__${token}`}});
+console.log(data);
+      //setCount(data.count);
+      //setLoading(false);
+      //setCart(data.products);
+      //console.log(cart);
+      return data;
+    }
+    catch {(error)
+    console.log(error);
+    }
+   
 
+  }
+
+
+
+  const increaseContext=async (productId)=>{
+    try{
+      //console.log('increase');
+      const token =localStorage.getItem("userToken");
+      const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/incraseQuantity`,{productId:productId},{headers:{Authorization:`Tariq__${token}`}});
+     
+     console.log(data);
+     getCartContext();
+      //return data;
+    }
+    catch {
+    console.log(error);
+    }
+  }
+  const decreaseContext=async (productId)=>{
+    try{
+      //console.log('decreas');
+      const token =localStorage.getItem("userToken");
+      const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/decraseQuantity`,{productId:productId},{headers:{Authorization:`Tariq__${token}`}});
+     
+     console.log(data);
+     
+      //return data;
+    }
+    catch {
+    console.log(error);
+    }
+  }
+
+  
 
   const removeItemContext=async (productId)=>{
     try{
@@ -81,7 +132,7 @@ console.log(error);
 },[count])
 
 
-return <CartContext.Provider value={{addToCartContext,getCartContext,removeItemContext,count,cart}}>
+return <CartContext.Provider value={{addToCartContext,getCartContext,removeItemContext,count,cart,loading,clearCartContext,increaseContext,decreaseContext}}>
     {children}
 </CartContext.Provider>
 

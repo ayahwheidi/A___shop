@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 
-import './../../cart/Cart.css'
 
 import {  useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
@@ -47,7 +46,7 @@ const {data}=await axios.post(`${import.meta.env.VITE_API_URL}/order`,{couponNam
 if(data.message=='success'){
   formik.resetForm();
   
-  toast.success('your Order added successfully', {
+  toastz.success('your Order added successfully', {
     
     position: "top-left",
     autoClose: 5000,

@@ -8,7 +8,7 @@ export default function Navbar() {
   const { count ,loading} = useContext(CartContext);
 
   let { userToken,setUserToken,userData ,setUserData} = useContext(UserContext);
-  if(loading&&userToken){
+  if(loading){
     return <p>.....loading</p>
 }
   let navigate = useNavigate();

@@ -18,6 +18,8 @@ import UserInfo from "../component/web/profile/UserInfo.jsx";
 import UserContact from "../component/web/profile/UserContact.jsx";
 import SendCode from "../component/web/SendCode.jsx";
 import GitOrder from "../component/web/order/GitOrder.jsx";
+import UserOrders from "../component/web/profile/UserOrders.jsx";
+import AllProducts from "../component/web/allProducts/AllProducts.jsx";
 //import Auth from "../component/web/proctedRoute/Auth.jsx";
 export const router = createBrowserRouter([
 
@@ -31,10 +33,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'login',
-        element:
-
-          <Login />
-
+        element: <Login />
       },
 
       {
@@ -78,7 +77,10 @@ export const router = createBrowserRouter([
         path: 'getOrder',
         element: <GitOrder />
       },
-      
+      {
+        path: 'allProducts',
+        element: <AllProducts />
+      },
       {
         path: 'profile',
         element:
@@ -93,6 +95,10 @@ export const router = createBrowserRouter([
           {
             path:'info',
             element:<UserInfo />
+          },
+          {
+            path:'orders',
+            element:<UserOrders/>
           }
 
         ]

@@ -16,6 +16,7 @@ const [loading,setLoading]=useState(true);
                 { headers:{ authorization: `Tariq__${userToken}` } })
                 console.log(data);
                 setUserData(data.user);
+                console.log(userData);
                 setLoading(false);
         }
        

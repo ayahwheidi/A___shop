@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 
   let[cart,setCart]=useState([]);
   let[count,setCount]=useState(0);
+  let[increascount,setIncreasCount]=useState(0);
   const [loading,setLoading]=useState(true);
 
 
@@ -48,6 +49,7 @@ console.log(error);
 console.log(data);
       setCount(data.count);
       setLoading(false);
+      
       //setCart(data.products);
       //console.log(cart);
       return data;
@@ -87,6 +89,8 @@ console.log(data);
      
      console.log(data);
      getCartContext();
+     setIncreasCount(increascount++);
+     //console.log(increascount);
       //return data;
     }
     catch {

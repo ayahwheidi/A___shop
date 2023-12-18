@@ -12,8 +12,9 @@ export default function Profile() {
     <aside className='d-flex gap-5'>
 <div>
     <nav className='d-flex flex-column'>
-        <Link className='text-decoration-none' to='info'>info</Link>
-        <Link className='text-decoration-none' to='contact'>contact</Link>
+        <Link className='text-decoration-none' to='info'>Info</Link>
+        <Link className='text-decoration-none' to='contact'>Contact</Link>
+        <Link className='text-decoration-none' to='orders'>Orders</Link>
     </nav>
 </div>
 

@@ -43,7 +43,7 @@ export default function Navbar() {
 
 
               <li className="nav-item">
-                <a className="nav-link" href="#">Products</a>
+                <Link className="nav-link"to="/allProducts">Products</Link>
               </li>
               {userToken ? <><li className="nav-item">
                 <Link className="nav-link" to='/cart'>Cart({count})</Link>

@@ -80,7 +80,7 @@ return res;
 
 
 {data?.count!=0 ?data?.products.map((product)=>
-
+<>
     <div className="item" key={product.details._id}>
                 <div className="product-info" onClick={()=>removeCart(product.details._id)}>
                   <img src={product.details.mainImage.secure_url }/>
@@ -144,10 +144,11 @@ return res;
                 </div>
                 <div className="price">${product.details.price}</div>
                 <div className="subtotal">${product.quantity* product.details.price }</div>
-              </div>    
+              </div>  
+                <button className='btn btn-outline-danger me-auto 'onClick={clearCart}>Clear Cart</button> 
+                </>
 ):<p>cart is empty</p>}
 
-{data?.count!=0 &&<button className='btn btn-outline-danger me-auto 'onClick={clearCart}>Clear Cart</button> }
 
 
 

@@ -55,7 +55,7 @@ const formik=useFormik({
 
 })
 
-const inputs =[
+const inputs  =[
 
 {
     id:'email',

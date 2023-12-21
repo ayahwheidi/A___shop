@@ -46,7 +46,7 @@ const {data}=await axios.post(`${import.meta.env.VITE_API_URL}/order`,{couponNam
 if(data.message=='success'){
   formik.resetForm();
   
-  toastz.success('your Order added successfully', {
+  toast.success('your Order added successfully', {
     
     position: "top-left",
     autoClose: 5000,

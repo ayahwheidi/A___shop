@@ -27,17 +27,19 @@ if(isLoading){
   return (
    <div className="products">
 
-
+<div className="row ">
 {data?.length ? data?.map((product)=>
-    <div className="product" key={product._id}>
+  
+    <div className="product " key={product._id}>
         <div className=' w-25' >
          <img  className =" img-fluid " src={product.mainImage.secure_url}/>
          </div>
     <h2>{product.name}</h2>
     <Link to={`/products/${product._id}`}> detailes</Link>
     </div>
+   
 ):<p>no product</p>}
-
+ </div>
    </div>
   )
 }

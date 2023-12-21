@@ -20,6 +20,7 @@ import SendCode from "../component/web/SendCode.jsx";
 import GitOrder from "../component/web/order/GitOrder.jsx";
 import UserOrders from "../component/web/profile/UserOrders.jsx";
 import AllProducts from "../component/web/allProducts/AllProducts.jsx";
+
 //import Auth from "../component/web/proctedRoute/Auth.jsx";
 export const router = createBrowserRouter([
 
@@ -45,6 +46,7 @@ export const router = createBrowserRouter([
         path: 'categories',
         element: <Categories />
       },
+     
       {
         path: '*',
         element: <h2>page not found --- web</h2>

@@ -1,11 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Rigester from '../register/Rigester'
 import { CartContext } from '../../context/FetureCartContext';
 import { UserContext } from '../../context/UserFeture';
+import { useQuery } from 'react-query';
 
 export default function Navbar() {
-  const { count ,loading} = useContext(CartContext);
+ // const[cartCount,setcartCount] =useState(0);
+  const { count ,loading,getCartContext} = useContext(CartContext);
 
   let { userToken,setUserToken,userData ,setUserData} = useContext(UserContext);
   //if(loading){
@@ -20,7 +22,9 @@ export default function Navbar() {
     setUserData(null);
     navigate('/');
   }
-  //console.log(user);
+
+
+//setcartCount(data.count);
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary text-bg-danger ">

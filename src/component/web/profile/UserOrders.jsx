@@ -12,7 +12,7 @@ export default function UserOrders() {
 const UserOrders= async()=>{
 const {data}=await axios.get(`${import.meta.env.VITE_API_URL}/order`,{headers:{ authorization: `Tariq__${userToken}` }});
 
-console.log(data.orders);
+console.log(data.orders[0].products);
 return data;
 
 }

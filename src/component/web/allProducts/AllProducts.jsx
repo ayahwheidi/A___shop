@@ -7,6 +7,7 @@ import { FaStar } from 'react-icons/fa';
 export default function AllProducts() {
 
 
+const [price,setPrice]=useState(0);
   const [pageNumbers, setpageNumbers] = useState([]);
   const [products, setProducts] = useState([]);
   const pageNumbers1 = [];
@@ -28,7 +29,12 @@ export default function AllProducts() {
     // console.log(pageNumbers);
     return data;
   }
+const grtByprice= async ( price)=> {
+  const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/products?page=1&price=${price}`);
+  console.log(data);
 
+return data ;
+}
   // console.log(useQuery('Allproducts',getAllProducts));
 
   const { data, isLoading } = useQuery("AllProducts", getAllProducts);
@@ -46,7 +52,14 @@ export default function AllProducts() {
   return (
 
     <>
+<input id="price" type='search' />
+ 
+<button onClick={()=>{
+  setPrice(document.getElementById('price').value);
+ console.log(price);
+ grtByprice(price);
 
+}}>search</button>
       <div className="container  ">
         <div className="row mb-5 ">
           

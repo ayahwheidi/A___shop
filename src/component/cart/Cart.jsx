@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './cart.css'
 import { CartContext } from '../context/FetureCartContext';
 import {  useQuery } from 'react-query';
@@ -17,24 +17,35 @@ const getCart= async()=>{
  
  return res ;
 }
+
+
+useEffect(()=>{
+  getCart();
+},[count])
+
 const{data,isLoading}= useQuery("cart",getCart);
 console.log(data);
-
+ 
 
 const clearCart=async()=>{
 const res= await clearCartContext();
-
+setCount(0);
 return res;
 }
+
+
+
+
+
 const IncreasGuantity=async(productId)=>{
   const res= await increaseContext(productId);
-  getCartContext();
+  getCart();
   return res;
   }
 
   const decreasGuantity=async(productId)=>{
     const res= await decreaseContext(productId);
-    getCartContext();
+    getCart();
     return res;
     }
 
@@ -106,6 +117,7 @@ return res;
                     </a>
                   </div>
                 </div>
+               
                 <div className="quantity">
                   <button onClick={()=>decreasGuantity(product.details._id)} >
                     <svg
@@ -145,9 +157,10 @@ return res;
                 <div className="price">${product.details.price}</div>
                 <div className="subtotal">${product.quantity* product.details.price }</div>
               </div>  
-                <button className='btn btn-outline-danger me-auto 'onClick={clearCart}>Clear Cart</button> 
+                
                 </>
 ):<p>cart is empty</p>}
+ {data?.count!=0 && <button className='btn btn-outline-danger me-auto 'onClick={clearCart}>Clear Cart</button> } 
 
 
 

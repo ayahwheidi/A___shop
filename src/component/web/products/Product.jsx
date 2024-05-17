@@ -23,6 +23,8 @@ let [comment,useComment]=useState('');
 
   const handelComment=(e)=>{
     useComment(e.target.value);
+   
+
   }
   
   const sendReview =async  (e) => {

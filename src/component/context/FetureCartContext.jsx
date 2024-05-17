@@ -66,10 +66,11 @@ console.log(data);
       const token =localStorage.getItem("userToken");
       const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/clear`,{},{headers:{Authorization:`Tariq__${token}`}});
 console.log(data);
-      //setCount(data.count);
+
       //setLoading(false);
       //setCart(data.products);
       //console.log(cart);
+      getCartContext();
       return data;
     }
     catch {(error)
@@ -90,7 +91,7 @@ console.log(data);
      console.log(data);
      getCartContext();
      setIncreasCount(increascount++);
-     //console.log(increascount);
+     console.log(increascount);
       //return data;
     }
     catch {
@@ -103,11 +104,11 @@ console.log(data);
       const token =localStorage.getItem("userToken");
       const {data}= await axios.patch(`${import.meta.env.VITE_API_URL}/cart/decraseQuantity`,{productId:productId},{headers:{Authorization:`Tariq__${token}`}});
      
-     console.log(data);
+    // console.log(data.cart.products );
      
       //return data;
     }
-    catch {
+    catch {(error)
     console.log(error);
     }
   }
@@ -133,10 +134,11 @@ console.log(data);
   }
   useEffect(()=>{
     getCartContext();
+   
 },[count])
 
 
-return <CartContext.Provider value={{addToCartContext,getCartContext,removeItemContext,count,cart,loading,clearCartContext,increaseContext,decreaseContext}}>
+return <CartContext.Provider value={{addToCartContext,getCartContext,removeItemContext,count,setCount,cart,loading,clearCartContext,increaseContext,decreaseContext}}>
     {children}
 </CartContext.Provider>
 
